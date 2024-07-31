@@ -16,7 +16,12 @@ const Landing = () => {
             अध्यापन adhyāpana <span>(To learn in a better way)</span> Freelearn
             App
           </h1>
-          <p>hhuskjdkjd kjSHdjhakjd</p>
+          <p>
+            Welcome to our educational platform, where learning meets
+            innovation! We are dedicated to empowering students by providing a
+            comprehensive and engaging learning experience.
+            
+          </p>
           <Link to="/register" className="btn register-link">
             Register
           </Link>

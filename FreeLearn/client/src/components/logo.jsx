@@ -1,8 +1,12 @@
-import logo from '../assets/images/logo.svg';
+import React from 'react';
 import styled from 'styled-components';
+import { LogoContainer, Highlight } from '../assets/wrappers/Logo';
 
 const Logo = () => {
-  return <img src={logo} alt="FreeLearn" className="logo" />;
+  return (
+    <LogoContainer>
+      Free<Highlight>Learn</Highlight>
+    </LogoContainer>
+  );
 };
-
 export default Logo;

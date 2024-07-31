@@ -12,7 +12,17 @@ import {
   Profile,
   Admin,
   Db,
+  EditSubject,
 } from './pages';
+
+import { action as registerAction } from './pages/register';
+import { action as loginAction } from './pages/Login';
+import { loader as userLoader } from './pages/DashboardLayout';
+import { loader as dbLoader } from './pages/db';
+import { loader as AllSubLoader } from './pages/Allsubs';
+import { loader as editLoader } from './pages/EditSubject';
+//import { action as contentAction } from './pages/Addsub';
+
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem('darkTheme') === 'true';
   document.body.classList.toggle('dark-theme', isDarkTheme);
@@ -28,7 +38,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Homelayout />, //component should be capitalize always
-    errorElement: <Error />,
+    //errorElement: <Error />,
     children: [
       {
         index: true,
@@ -37,22 +47,27 @@ const router = createBrowserRouter([
       {
         path: 'register',
         element: <Register />,
+        action: registerAction,
       },
       {
         path: 'login',
         element: <Login />,
+        action: loginAction,
       },
       {
         path: 'dashboard',
         element: <DashboardLayout />,
+        loader: userLoader,
         children: [
           {
             index: true,
             element: <Db />,
+            loader: dbLoader,
           },
           {
             path: 'addsub',
             element: <Addsub />,
+            //action:contentAction
           },
           {
             path: 'stats',
@@ -61,6 +76,7 @@ const router = createBrowserRouter([
           {
             path: 'all-subs',
             element: <Allsubs />,
+            loader: AllSubLoader,
           },
           {
             path: 'profile',
@@ -69,6 +85,11 @@ const router = createBrowserRouter([
           {
             path: 'admin',
             element: <Admin />,
+          },
+          {
+            path: 'edit-content/:id',
+            element: <EditSubject />,
+            loader:editLoader
           },
         ],
       },
