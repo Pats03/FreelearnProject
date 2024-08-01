@@ -61,7 +61,7 @@ const EditSubject = () => {
         className="form"
         onSubmit={handleSubmit}
       >
-        <h4 className="form-title">add content</h4>
+        <h4 className="form-title">Edit content</h4>
         <div className="form-center">
           <Formrow
             type="text"

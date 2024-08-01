@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.article`
-  background: var(--background-secondary-color);
+  background: #021012;
   border-radius: var(--border-radius);
   display: grid;
   grid-template-rows: 1fr auto;

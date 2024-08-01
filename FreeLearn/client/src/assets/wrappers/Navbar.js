@@ -6,7 +6,7 @@ const Wrapper = styled.nav`
   align-items: center;
   justify-content: center;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
-  background: var(--background-secondary-color);
+  background-color: black;
   .nav-center {
     display: flex;
     width: 90vw;
@@ -24,6 +24,7 @@ const Wrapper = styled.nav`
   }
   .logo-text {
     display: none;
+    color: #f78672;
   }
   .logo {
     display: flex;
@@ -33,6 +34,7 @@ const Wrapper = styled.nav`
   .btn-container {
     display: flex;
     align-items: center;
+    color: #f78672;
   }
   @media (min-width: 992px) {
     position: sticky;

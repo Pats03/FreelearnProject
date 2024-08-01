@@ -13,6 +13,7 @@ import {
   Admin,
   Db,
   EditSubject,
+  DeleteContent
 } from './pages';
 
 import { action as registerAction } from './pages/register';
@@ -21,6 +22,7 @@ import { loader as userLoader } from './pages/DashboardLayout';
 import { loader as dbLoader } from './pages/db';
 import { loader as AllSubLoader } from './pages/Allsubs';
 import { loader as editLoader } from './pages/EditSubject';
+import{action as deleteAction} from './pages/DeleteContent'
 //import { action as contentAction } from './pages/Addsub';
 
 export const checkDefaultTheme = () => {
@@ -89,7 +91,12 @@ const router = createBrowserRouter([
           {
             path: 'edit-content/:id',
             element: <EditSubject />,
-            loader:editLoader
+            loader: editLoader,
+          },
+          {
+            path: 'delete-content/:id',
+            element: <DeleteContent />,
+            action: deleteAction ,
           },
         ],
       },

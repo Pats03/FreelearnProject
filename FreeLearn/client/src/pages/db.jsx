@@ -10,10 +10,10 @@ import { useOutletContext } from 'react-router-dom';
 export const loader = async () => {
   try {
     const { data } = await customFetch('/teacher/recentcontent');
-    return data;
+    return { data };
   } catch (error) {
     toast.error(error?.response?.data?.msg);
-    return null;
+    return error;
   }
 };
 
@@ -25,30 +25,32 @@ const Wrapper = styled.div`
 const WelcomeMessage = styled.h1`
   font-family: 'Arial', sans-serif;
   font-size: 2.5em;
-  color: #4caf50; /* Neutral highlight color */
+  color: #031B29; /* Neutral highlight color */
 `;
 
 const Quote = styled.p`
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Courier New', Courier, monospace,bold;
   font-size: 1.5em;
-  color: #114e73; /* Neutral secondary text color */
+  color: #031b29; /* Neutral secondary text color */
   margin: 20px 0;
 `;
 
 const Timer = styled.h2`
   font-family: 'Verdana', sans-serif;
   font-size: 1.8em;
-  color: #114e73; /* Neutral text color */
+  color: #031b29; /* Neutral text color */
 `;
 
 const Section = styled.div`
-  margin: 20px 0;
+border: 2cap;
+ 
 `;
 
 const SectionTitle = styled.h3`
   font-family: 'Tahoma', sans-serif;
-  font-size: 1.5em;
-  color: #114e73; /* Neutral text color */
+  font-size: 2em;
+  color: black; /* Red text color */
+  margin-bottom: 0.5; /* Reduce gap */
 `;
 
 const TaskCount = styled.p`
@@ -57,10 +59,16 @@ const TaskCount = styled.p`
   color: #114e73; /* Neutral tertiary text color */
 `;
 
+const JobsSection = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+`;
+
 const Db = () => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
   const { user, verifiedMediaCount, uploadedCount } = useOutletContext();
-  const {} = useLoaderData();
+  const { data } = useLoaderData();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -74,17 +82,21 @@ const Db = () => {
 
   return (
     <Wrapper>
-      <WelcomeMessage>Welcome back {user.name} !!!</WelcomeMessage>
+      <WelcomeMessage>Welcome {user.name} !!!</WelcomeMessage>
       <Quote>
         "The best teachers teach from the heart, not from the book." - Unknown
       </Quote>
-      <Timer>Current Time: {time}</Timer>
+      {/* <Timer>Current Time: {time}</Timer> */}
       <Section>
-        <SectionTitle>Tasks Overview</SectionTitle>
+        {/* <SectionTitle>Tasks Overview</SectionTitle>
         <br />
         <TaskCount>Uploaded Tasks:{uploadedCount}</TaskCount>
+       
         <br />
-        <TaskCount>Verified Tasks: {verifiedMediaCount}</TaskCount>
+        <TaskCount>Verified Tasks: {verifiedMediaCount}</TaskCount> */}
+        {/* {show&& <PdfComp pdf={pdf}/>} */}
+        <SectionTitle>Recent Uploads</SectionTitle>
+        <JobsContainer content={data} user={user} />
       </Section>
     </Wrapper>
   );

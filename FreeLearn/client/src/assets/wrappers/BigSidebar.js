@@ -6,7 +6,7 @@ const Wrapper = styled.aside`
     display: block;
     box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.1);
     .sidebar-container {
-      background: var(--background-secondary-color);
+      background: black;
       min-height: 100vh;
       height: 100%;
       width: 250px;
@@ -30,6 +30,7 @@ const Wrapper = styled.aside`
       padding-top: 2rem;
       display: flex;
       flex-direction: column;
+      color: white;
     }
     .nav-link {
       display: flex;

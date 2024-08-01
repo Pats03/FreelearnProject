@@ -13,7 +13,7 @@ const Landing = () => {
       <div className="container page">
         <div className="info">
           <h1>
-            अध्यापन adhyāpana <span>(To learn in a better way)</span> Freelearn
+            अध्यापन<span>(To learn in a better way)</span> Freelearn
             App
           </h1>
           <p>

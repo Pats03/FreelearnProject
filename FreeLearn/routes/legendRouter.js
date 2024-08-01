@@ -4,6 +4,11 @@ import {checkLegendRole} from '../middleware/validationMiddleware.js'
 import { Router } from 'express';
 const router = Router();
 router.get('/',authenticateUser,checkLegendRole,allmedia);
-router.delete('/deletemedia/:mediaId', checkLegendRole,authenticateUser, deletemedia);
+router.delete(
+  '/deletemedia/:mediaId',
+  authenticateUser,
+  checkLegendRole,
+  deletemedia
+);
 
 export default router;

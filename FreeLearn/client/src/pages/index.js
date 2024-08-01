@@ -11,3 +11,4 @@ export { default as Profile } from './profile';
 export { default as Register } from './register';
 export { default as Stats } from './Stats';
 export { default as Db } from './db';
+export { default as DeleteContent } from './DeleteContent';
